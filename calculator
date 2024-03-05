@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Calculator</title>
+<script>
+// Function to update the input field with the pressed key
+function insert(num) {
+    document.form.textview.value = document.form.textview.value + num;
+}
+
+// Function to calculate the result of the expression
+function equal() {
+    var exp = document.form.textview.value;
+    if (exp) {
+        document.form.textview.value = eval(exp);
+    }
+}
+
+// Function to clear the last character
+function back() {
+    var exp = document.form.textview.value;
+    document.form.textview.value = exp.substring(0, exp.length - 1);
+}
+
+// Function to clear the entire input
+function clean() {
+    document.form.textview.value = "";
+}
+</script>
+</head>
+<body>
+<form name="form">
+    <input name="textview" type="text">
+</form>
+<table>
+    <tr>
+        <td><input type="button" value="C" onclick="clean()"></td>
+        <td><input type="button" value="<" onclick="back()"></td>
+        <td><input type="button" value="/" onclick="insert('/')"></td>
+        <td><input type="button" value="x" onclick="insert('*')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" onclick="insert(7)"></td>
+        <td><input type="button" value="8" onclick="insert(8)"></td>
+        <td><input type="button" value="9" onclick="insert(9)"></td>
+        <td><input type="button" value="-" onclick="insert('-')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" onclick="insert(4)"></td>
+        <td><input type="button" value="5" onclick="insert(5)"></td>
+        <td><input type="button" value="6" onclick="insert(6)"></td>
+        <td><input type="button" value="+" onclick="insert('+')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" onclick="insert(1)"></td>
+        <td><input type="button" value="2" onclick="insert(2)"></td>
+        <td><input type="button" value="3" onclick="insert(3)"></td>
+        <td rowspan="2"><input style="height:106px;" type="button" value="=" onclick="equal()"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input style="width:106px;" type="button" value="0" onclick="insert(0)"></td>
+        <td><input type="button" value="." onclick="insert('.')"></td>
+    </tr>
+</table>
+</body>
+</html>
